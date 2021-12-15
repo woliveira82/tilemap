@@ -1,6 +1,6 @@
 // Define variables
 var tilesetImage = new Image();
-tilesetImage.src = 'images/walls.png';
+tilesetImage.src = '/static/images/walls.png';
 tilesetImage.onload = drawImage;
 
 var canvas = document.getElementById('main');
