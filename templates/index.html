@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>PoP Vlog - Tile World</title>
-    <meta name = "viewport" content = "width=device-width">
-  </head>
-  <body>
-    <canvas id="main" width="1024" height="640">
-    <script src={{ url_for('static', filename='js/tile-world.js')}}></script>
-  </body>
+    <head>
+        <title>PoP Vlog - Tile World</title>
+        <meta name = "viewport" content = "width=device-width">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <form action="/">
+            <div id="top-bar">
+                <div class="config-value">Size: <input id="size" name="size" value="64" size="3"></div>
+                <div class="config-value">Rooms: <input id="rooms" name="room" value="5" size="3"></div>
+                <div class="config-value">Hallways: <input id="hallways" name="hall" value="30" size="3"></div>
+                <div class="config-value"><button id="generate-map">GENERATE</button></div>
+            </div>
+        </form>
+        <div id="main-draw">
+            <canvas id="main" width="1024" height="640">
+            <script src={{ url_for('static', filename='js/tile-world.js')}}></script>
+        </div>
+    </body>
 </html>
