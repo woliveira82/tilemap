@@ -1,12 +1,11 @@
 from flask import Flask, request, render_template
 from webargs import fields
 from webargs.flaskparser import parser
-import numpy as np
+from map_genareator import Map
 
 app = Flask(__name__)
 app.config['ENV'] = 'development'
 app.config['DEBUG'] = True
-
 
 
 @app.route('/', methods=['GET'])
@@ -23,10 +22,9 @@ def index():
     'type': fields.Str()
 }, location='query')
 def get_map(args):
-    random_map = np.random.randint(1, high=5, size=(args['width'], args['height']))
-    return {'map': random_map.tolist()}
-    
+    map = Map(**args)
+    return map.to_list()
+
 
 if __name__ == '__main__':
     app.run()
-    

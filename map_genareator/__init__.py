@@ -1,0 +1,1 @@
+from map_genareator.Map import Map
